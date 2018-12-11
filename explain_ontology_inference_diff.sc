@@ -45,5 +45,5 @@ def main(ontology: os.Path, axioms: os.Path): Unit = {
   for {
     inference <- newInferences
     explanation <- explainer.getExplanations(inference, 1).asScala
-  } println(s"$explanation\n\n")
+  } println(s"${explanation.getEntailment}\t${explanation.getAxioms.asScala.mkString("|")}")
 }
